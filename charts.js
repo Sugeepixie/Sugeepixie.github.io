@@ -25,6 +25,7 @@ init();
 
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
+   var newSample = sampleNames[0];
   buildMetadata(newSample);
   buildCharts(newSample);
   
@@ -49,7 +50,6 @@ function buildMetadata(sample) {
     Object.entries(result).forEach(([key, value]) => {
       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
     });
-
   });
 }
 
