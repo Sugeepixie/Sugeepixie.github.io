@@ -12,12 +12,6 @@ function init() {
         .text(sample)
         .property("value", sample);
     });
-
-    // Use the first sample from the list to build the initial plots
-    var firstSample = sampleNames[0];
-    buildCharts(firstSample);
-    buildMetadata(firstSample);
-  });
 }
 
 // Initialize the dashboard
@@ -25,7 +19,7 @@ init();
 
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
-  
+  var newSample = sampleNames[0];
   buildMetadata(newSample);
   buildCharts(newSample);
   
@@ -54,7 +48,7 @@ function buildMetadata(sample) {
 }
 
 // 1. Create the buildCharts function.
-function buildCharts(sample) {
+function buildCharts(newSample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
     
